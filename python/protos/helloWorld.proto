@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package helloworld;
+
+// Interface exported by the server.
+service HelloWorld {
+  // A simple RPC.
+  rpc Double(Int) returns (Int) {}
+
+  // A server-to-client streaming RPC.
+  rpc Range(Int) returns (stream Int) {}
+
+  // A client-to-server streaming RPC.
+  rpc Sum(stream Int) returns (Int) {}
+
+  // A Bidirectional streaming RPC.
+  rpc DoubleIter(stream Int) returns (stream Int) {}
+}
+
+message Int {
+  int32 value = 1;
+}
+
